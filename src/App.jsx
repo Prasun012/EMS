@@ -5,7 +5,7 @@ import PublicRoutes from "./routes/PublicRoutes";
 import './App.css'
 
 function App() {
-const[isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token") ? true : false);
+const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);
   return (
     <BrowserRouter>
 {isAuthenticated ? <PrivateRoutes/> : <PublicRoutes/>}

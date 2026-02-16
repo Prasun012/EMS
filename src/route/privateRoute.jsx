@@ -21,3 +21,4 @@ const PrivateRoutes = () => {
     </MainLayout>
   );
 };
+export default PrivateRoutes;

@@ -1,12 +1,15 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter,Routes, Route } from "react-router-dom"
+import { useState } from "react";
+import PrivateRoutes from "./routes/PrivateRoutes";
+import PublicRoutes from "./routes/PublicRoutes";
 import './App.css'
-import MainLayout from './core/MainLayout'
 
 function App() {
-
+const[isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token") ? true : false);
   return (
     <BrowserRouter>
-   <MainLayout/>
+{isAuthenticated ? <PrivateRoutes/> : <PublicRoutes/>}
+  
    </BrowserRouter>
   )
 }

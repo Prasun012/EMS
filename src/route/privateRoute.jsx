@@ -9,16 +9,19 @@ import MainLayout from "../core/MainLayout";
 
 const PrivateRoutes = () => {
   return (
-    <MainLayout>
+
       <Routes>
+        <Route path="/" element={<MainLayout />} >
+
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/department" element={<Department />} />
         <Route path="/employeeID" element={<EmployeeID />} />
         <Route path="/viewDetail" element={<ViewDetail />} />
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/employee" element={<Employee />} />
+        </Route>
       </Routes>
-    </MainLayout>
+
   );
 };
 export default PrivateRoutes;

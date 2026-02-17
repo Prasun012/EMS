@@ -1,14 +1,10 @@
-import { BrowserRouter } from 'react-router-dom'
-import './App.css'
-import MainLayout from './core/MainLayout'
+import Table from "./components/DataTable/Table";
+import TableDemo from "./components/DataTable/TableDemo";
 
-function App() {
+const App = () => {
+  return (<div>
+    </div>
+  );
+};
 
-  return (
-    <BrowserRouter>
-   <MainLayout/>
-   </BrowserRouter>
-  )
-}
-
-export default App
+export default App;

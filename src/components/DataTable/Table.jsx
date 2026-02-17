@@ -8,11 +8,16 @@ const Table = ({ columns, data }) => {
           ))}
         </tr>
       </thead>
+
       <tbody>
-        {data.map((row) => (
+        {data.map((row, rowIndex) => (
           <tr key={row.id}>
             {columns.map((column) => (
-              <td key={column.key}>{row[column.key]}</td>
+              <td key={column.key}>
+                {column.key === "index"
+                  ? rowIndex + 1  
+                  : row[column.key]}
+              </td>
             ))}
           </tr>
         ))}
@@ -20,4 +25,5 @@ const Table = ({ columns, data }) => {
     </table>
   );
 };
-export default Table; 
+
+export default Table;

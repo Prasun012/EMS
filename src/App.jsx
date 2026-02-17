@@ -1,3 +1,4 @@
+
 import { BrowserRouter,Routes, Route } from "react-router-dom"
 import { useState } from "react";
 import PrivateRoutes from "./routes/PrivateRoutes";
@@ -14,4 +15,5 @@ const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);
   )
 }
 
-export default App
+export default App;
+

@@ -26,4 +26,8 @@ const Table = ({ columns, data }) => {
   );
 };
 
+<<<<<<< HEAD
 export default Table;
+=======
+export default Table;
+>>>>>>> 5cd1225f05a30d56b07aa572be6b04b53f6126a9

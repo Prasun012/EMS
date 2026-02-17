@@ -1,3 +1,4 @@
+
 import { BrowserRouter,Routes, Route } from "react-router-dom"
 import { useState } from "react";
 
@@ -15,4 +16,5 @@ const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);
   )
 }
 
-export default App
+export default App;
+

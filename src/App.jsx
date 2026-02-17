@@ -1,8 +1,9 @@
-import DemoButton from "./components/Button/DemoButton";
+import ModelDemo from "./components/Modal/ModelDemo";
 
 function App() {
-  return (<DemoButton />
-  );
+  return (
+   <ModelDemo/>
+  )
 }
 
 export default App;

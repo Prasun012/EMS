@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "../core/Auth/Login";
 import Register from "../core/Auth/Register";
+import Login from "../core/Auth/Login";
+
 
 const PublicRoutes = () => {
   return (

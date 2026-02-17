@@ -17,4 +17,3 @@ const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);
 }
 
 export default App;
-

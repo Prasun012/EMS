@@ -5,8 +5,4 @@ const Data = [
   { id: 4, name: "p3", department: "HR" }
 ];
 
-<<<<<<< HEAD
 export default Data;
-=======
-export default Data;
->>>>>>> 5cd1225f05a30d56b07aa572be6b04b53f6126a9

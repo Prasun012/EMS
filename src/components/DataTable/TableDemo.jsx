@@ -11,8 +11,4 @@ const TableDemo = () => {
   return <Table columns={columns} data={Data} />;
 };
 
-<<<<<<< HEAD
 export default TableDemo;
-=======
-export default TableDemo;
->>>>>>> 5cd1225f05a30d56b07aa572be6b04b53f6126a9

@@ -1,7 +1,7 @@
-function Dasboard() {
+function Department() {
     return (<>Dasbord  </>);
 
 
 }
 
-export default Dasboard
+export default Department

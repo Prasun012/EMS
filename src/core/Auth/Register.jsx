@@ -1,1 +1,8 @@
-<div>this is registratiion page</div>
+
+function Register() {
+    return (<>Dasbord  </>);
+
+
+}
+
+export default Register

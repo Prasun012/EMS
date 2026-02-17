@@ -3,8 +3,8 @@ import { BrowserRouter,Routes, Route } from "react-router-dom"
 import { useState } from "react";
 
 import './App.css'
-import PrivateRoutes from "./route/privateRoute";
-import PublicRoutes from "./route/publicRoute";
+import PrivateRoutes from "./Route/PrivateRoute";
+import PublicRoutes from "./Route/publicRoute";
 
 function App() {
 const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);

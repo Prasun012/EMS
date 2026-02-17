@@ -1,7 +1,7 @@
-function Dasboard() {
+function EmployeeID() {
     return (<>Dasbord  </>);
 
 
 }
 
-export default Dasboard
+export default EmployeeID

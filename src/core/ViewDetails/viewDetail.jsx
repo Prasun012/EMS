@@ -1,7 +1,7 @@
-function Dasboard() {
+function ViewDetails() {
     return (<>Dasbord  </>);
 
 
 }
 
-export default Dasboard
+export default ViewDetails

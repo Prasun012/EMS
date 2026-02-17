@@ -1,6 +1,6 @@
 function Department (){
     return(
-    Department
+    <h1>Department</h1>
     )
 }
 export default Department;

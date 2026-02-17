@@ -5,6 +5,7 @@ import EmployeeID from "../EmployeeID/employeeID";
 import ViewDetails from "../ViewDetails/ViewDetails";
 import Attendance from "../Attendance/attendance";
 import Employee from "../AddEmployee/Employee";
+import MainLayout from "../MainLayout/MainLayout";
 
 
 const PrivateRoutes = () => {

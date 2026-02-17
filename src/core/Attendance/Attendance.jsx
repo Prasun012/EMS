@@ -1,6 +1,6 @@
 function Attendance() {
   return (
-    Attendance
+    <h1>Attendance</h1>
   )
 }
 export default Attendance;  

@@ -5,10 +5,12 @@ const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const sidebarMenu = [
-    { id: 1, name: "Dashboard", path: "/" },
-    { id: 2, name: "Users", path: "/users" },
-    { id: 3, name: "Reports", path: "/reports" },
-    { id: 4, name: "Settings", path: "/settings" },
+    // { id: 1, name: "Dashboard", path: "/" },
+    { id: 1, name: "Dashboard", path: "/dashboard" },
+    { id: 4, name: "Employee", path: "/employee" },
+    { id: 2, name: "Department", path: "/department" },
+    { id: 5, name: "Attendance", path: "/attendance" },
+    { id: 3, name: "Details", path: "/viewDetail" },
   ];
 
   return (

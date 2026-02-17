@@ -1,13 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import Register from "../core/Auth/Register";
-import Login from "../core/Auth/Login";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "../Auth/Login";
+import Register from "../Auth/Register";
 
 
 const PublicRoutes = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>} />
     </Routes>
   );
 };

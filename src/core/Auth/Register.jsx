@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { users, addUser } from "../UserData/Users";
+import { addUser, users } from "../../UserData/Users";
+
 
 const Register = () => {
   const navigate = useNavigate();

@@ -1,51 +1,97 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Users from "../../UserData/Users";
+import Button from "../../components/Button/Button";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    const userFound = Users.find(
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const validUser = Users.find(
       (user) =>
-        user.username === username &&
-        user.password === password
+        user.username === username && user.password === password
     );
 
-    if (userFound) {
-      localStorage.setItem("user", JSON.stringify(userFound));
+    if (validUser) {
+      localStorage.setItem("users", JSON.stringify(validUser));
+      navigate("/");
       window.location.reload();
     } else {
-      setMessage("Invalid Username or Password ❌");
+      setError("Invalid Username or Password");
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 px-4">
+      <div className="bg-white shadow-xl rounded-2xl w-full max-w-md p-8">
+        
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          Login
+        </h2>
 
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+        <form onSubmit={handleLogin} className="space-y-5">
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+          {error && (
+            <div className="bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm text-center">
+              {error}
+            </div>
+          )}
 
-      <button onClick={handleLogin}>Login</button>
+          {/* Username */}
+          <div>
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Username
+            </label>
+            <input
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            />
+          </div>
 
-      {message && <p>{message}</p>}
+          {/* Password */}
+          <div>
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            />
+          </div>
+
+          {/* Login Button */}
+          <Button type="submit" variant="primary" size="md">
+            Login
+          </Button>
+
+          {/* Register Link */}
+          <p className="text-sm text-center text-gray-600">
+            Don’t have an account?{" "}
+            <Link
+              to="/register"
+              className="text-blue-600 font-medium hover:underline"
+            >
+              Register
+            </Link>
+          </p>
+
+        </form>
+      </div>
     </div>
   );
 };
 
-export default Login;   // ✅ MUST BE OUTSIDE THE COMPONENT
+export default Login;

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard";
 import Department from "../Department/department";
 import EmployeeID from "../EmployeeID/employeeID";
@@ -7,22 +7,21 @@ import Attendance from "../Attendance/attendance";
 import Employee from "../AddEmployee/Employee";
 import MainLayout from "../MainLayout/MainLayout";
 
-
 const PrivateRoutes = () => {
   return (
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="department" element={<Department />} />
+        <Route path="employeeID" element={<EmployeeID />} />
+        <Route path="viewDetail" element={<ViewDetails />} />
+        <Route path="attendance" element={<Attendance />} />
+        <Route path="employee" element={<Employee />} />
+      </Route>
 
-      <Routes>
-        <Route path="/" element={<MainLayout />} >
-
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/department" element={<Department />} />
-        <Route path="/employeeID" element={<EmployeeID />} />
-        <Route path="/viewDetail" element={<ViewDetails />} />
-        <Route path="/attendance" element={<Attendance />} />
-        <Route path="/employee" element={<Employee />} />
-        </Route>
-      </Routes>
-
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
+
 export default PrivateRoutes;

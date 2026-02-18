@@ -4,7 +4,7 @@ import UserMenu from "./UserMenu";
 
 const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const navigate = useNavigate();
+ 
 
   const sidebarMenu = [
     { id: 1, name: "Dashboard", path: "/" },
@@ -13,12 +13,6 @@ const MainLayout = () => {
     { id: 4, name: "Attendance", path: "/attendance" },
     { id: 5, name: "Details", path: "/viewDetail" },
   ];
-
-  const handleLogout = () => {
-    localStorage.removeItem("users");
-    navigate("/login");
-    window.location.reload(); 
-  };
 
   return (
     <div className="h-screen flex flex-col">

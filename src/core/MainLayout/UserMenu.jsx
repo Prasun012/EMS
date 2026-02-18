@@ -1,80 +1,15 @@
 import { useState } from "react";
-<<<<<<< HEAD
-import { NavLink, Outlet } from "react-router-dom";
-import UserMenu from "./UserMenu";
-
-const MainLayout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-  const sidebarMenu = [
-    // { id: 1, name: "Dashboard", path: "/" },
-    { id: 1, name: "Dashboard", path: "/" },
-    { id: 2, name: "Employee", path: "/employee" },
-    { id: 3, name: "Department", path: "/department" },
-    { id: 4, name: "Attendance", path: "/attendance" },
-    { id: 5, name: "Details", path: "/viewDetail" },
-  ];
-
-  return (
-    <div className="h-screen flex flex-col">
-      {/* Header */}
-      <header className="flex items-center justify-between bg-blue-600 text-white px-6 py-3 shadow-md">
-        <div className="flex items-center gap-4">
-        <button
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="text-2xl"
-        >
-          ☰
-        </button>
-
-        <h1 className="text-lg font-semibold">
-          <img
-         src="/src/assets/logo.png"
-          alt="Logo" 
-          className="flex items-center h-8 w-9" />
-          </h1>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <UserMenu />
-        </div>
-      </header>
-
-      <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar */}
-        {isSidebarOpen && (
-          <aside className="w-56 bg-white shadow-md p-4">
-            <ul className="space-y-2">
-              {sidebarMenu.map((item) => (
-                <li key={item.id}>
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) =>
-                      `block px-3 py-2 rounded-md transition ${
-                        isActive
-                          ? "bg-blue-100 text-blue-600 font-medium"
-                          : "hover:bg-gray-100"
-                      }`
-                    }
-                  >
-                    {item.name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )}
-
-        {/* Main Content */}
-        <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">
-          <Outlet />
-        </main>
-      </div>
-=======
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const UserMenu = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("users");
+    navigate("/login");
+    window.location.reload();
+  };
 
   return (
     <div className="relative">
@@ -96,23 +31,21 @@ const UserMenu = () => {
           <NavLink
             to="/profile"
             className="block px-4 py-2 hover:bg-gray-100"
+            onClick={() => setOpen(false)}
           >
             Profile
           </NavLink>
+
           <button
+            onClick={handleLogout}
             className="block w-full text-left px-4 py-2 hover:bg-gray-100"
           >
             Logout
           </button>
         </div>
       )}
->>>>>>> 0a6e2498a17c06acc1d5e7d1c475e131e1aa9165
     </div>
   );
 };
 
-<<<<<<< HEAD
-export default MainLayout;
-=======
 export default UserMenu;
->>>>>>> 0a6e2498a17c06acc1d5e7d1c475e131e1aa9165

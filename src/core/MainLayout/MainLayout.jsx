@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import UserMenu from "./UserMenu";
 
 const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -25,12 +26,16 @@ const MainLayout = () => {
           ☰
         </button>
 
-        <h1 className="text-lg font-semibold">Employee Management System</h1>
+        <h1 className="text-lg font-semibold">
+          <img
+         src="/src/assets/logo.png"
+          alt="Logo" 
+          className="flex items-center h-8 w-9" />
+          </h1>
         </div>
 
-        <div className="flex gap-4 text-sm">
-          <button className="hover:underline">Profile</button>
-          <button className="hover:underline">Logout</button>
+        <div className="flex items-center gap-4">
+          <UserMenu />
         </div>
       </header>
 

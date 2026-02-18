@@ -10,7 +10,7 @@ const Users = [
 // export const getUsers = () => {
 //     return users;
 // };
-// export default Users;
+
 export let users = [{
     id: 1,
     name: "Admin",
@@ -25,3 +25,4 @@ export const addUser = (user) => {
         ...user
     });
 };
+export default Users;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 const Login = () => {
   return (
@@ -52,3 +53,13 @@ const Login = () => {
 };
 
 export default Login;
+=======
+
+function Login() {
+    return (<div>Dasbord  </div>);
+
+
+}
+
+export default Login;
+>>>>>>> fca391fa5e2f5414699e2138d885bee334afa05e

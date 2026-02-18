@@ -17,6 +17,7 @@ const MainLayout = () => {
     <div className="h-screen flex flex-col">
       {/* Header */}
       <header className="flex items-center justify-between bg-blue-600 text-white px-6 py-3 shadow-md">
+        <div className="flex items-center gap-4">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="text-2xl"
@@ -24,7 +25,8 @@ const MainLayout = () => {
           ☰
         </button>
 
-        <h1 className="text-lg font-semibold">My App</h1>
+        <h1 className="text-lg font-semibold">Employee Management System</h1>
+        </div>
 
         <div className="flex gap-4 text-sm">
           <button className="hover:underline">Profile</button>

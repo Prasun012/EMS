@@ -18,6 +18,9 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+ addUser(formData); //  Store user in JS file
+
+    console.log("All Users:", getUsers());
 
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");

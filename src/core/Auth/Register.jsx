@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addUser, users } from "../../UserData/Users";
+import "./Register.css";
 
 
 const Register = () => {

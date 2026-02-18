@@ -14,7 +14,7 @@ const PrivateRoutes = () => {
       <Routes>
         <Route path="/" element={<MainLayout />} >
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/department" element={<Department />} />
         <Route path="/employeeID" element={<EmployeeID />} />
         <Route path="/viewDetail" element={<ViewDetails />} />

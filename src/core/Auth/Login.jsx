@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-
-function Login() {
-    return (<div>Dasbord  </div>);
-
-
-}
-
-export default Login;
-=======
 import React from "react";
 const Login = () => {
   return (
@@ -62,4 +52,3 @@ const Login = () => {
 };
 
 export default Login;
->>>>>>> a8cee5f3592516cf5255736c69b5ffee8b7856b0

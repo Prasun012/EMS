@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { addUser, getUsers } from "../../UserData/Users";
+import "./Register.css";
 
 const Register = () => {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,55 +18,70 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
- addUser(formData); 
-
-    console.log("All Users:", getUsers());
-    console.log("User Registered:", formData);
-
-   
+    alert("Registered Successfully (Demo)");
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="register-container">
+      <div className="register-card">
+        <h2>Create Account</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          onChange={handleChange}
-        />
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your full name"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm password"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit">Register</button>
-      </form>
+          <button type="submit" className="register-btn">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

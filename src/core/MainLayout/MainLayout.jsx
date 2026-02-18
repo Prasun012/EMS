@@ -1,39 +1,49 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import UserMenu from "./UserMenu";
 
 const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+ 
 
   const sidebarMenu = [
     { id: 1, name: "Dashboard", path: "/" },
-    { id: 2, name: "Users", path: "/users" },
-    { id: 3, name: "Reports", path: "/reports" },
-    { id: 4, name: "Settings", path: "/settings" },
+    { id: 2, name: "Employee", path: "/employee" },
+    { id: 3, name: "Department", path: "/department" },
+    { id: 4, name: "Attendance", path: "/attendance" },
+    { id: 5, name: "Details", path: "/viewDetail" },
   ];
 
   return (
     <div className="h-screen flex flex-col">
       {/* Header */}
       <header className="flex items-center justify-between bg-blue-600 text-white px-6 py-3 shadow-md">
-        <button
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="text-2xl"
-        >
-          ☰
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="text-2xl"
+          >
+            ☰
+          </button>
 
-        <h1 className="text-lg font-semibold">My App</h1>
+        <h1 className="text-lg font-semibold">
+          <img
+         src="/src/assets/logo.png"
+          alt="Logo" 
+          className="flex items-center h-8 w-9" />
+          </h1>
+        </div>
 
-        <div className="flex gap-4 text-sm">
-          <button className="hover:underline">Profile</button>
-          <button className="hover:underline">Logout</button>
+        <div className="flex items-center gap-4">
+          <UserMenu />
         </div>
       </header>
 
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         {isSidebarOpen && (
-          <aside className="w-56 bg-white shadow-md p-4">
+          <aside className="w-56 bg-white shadow-md p-4 flex flex-col justify-between">
+            {/* Top Menu */}
             <ul className="space-y-2">
               {sidebarMenu.map((item) => (
                 <li key={item.id}>
@@ -52,6 +62,9 @@ const MainLayout = () => {
                 </li>
               ))}
             </ul>
+
+            
+            
           </aside>
         )}
 

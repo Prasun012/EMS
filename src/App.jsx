@@ -1,39 +1,21 @@
-
-<<<<<<< HEAD
-// import { BrowserRouter,Routes, Route } from "react-router-dom"
-// import { useState } from "react";
-// import PrivateRoutes from "./routes/PrivateRoutes";
-// import PublicRoutes from "./routes/PublicRoutes";
-// import './App.css'
-
-import Login from "./core/Auth/Login";
-
-function App() {
-//const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);
-  return (
-//     <BrowserRouter>
-// {isAuthenticated ? <PrivateRoutes/> : <PublicRoutes/>}
-<Login/>  
-//    </BrowserRouter>
-=======
-import { BrowserRouter,Routes, Route } from "react-router-dom"
-// import { useState } from "react";
-
-import './App.css'
+import { BrowserRouter } from "react-router-dom";
+import { useState, useEffect } from "react";
 import PrivateRoutes from "./core/Routes/PrivateRoutes";
-// import PublicRoutes from "./core/Routes/PublicRoutes";
+import PublicRoutes from "./core/Routes/PublicRoutes";
 
 function App() {
-// const[isAuthenticated] = useState(localStorage.getItem("token") ? true : false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsAuthenticated(!!user);
+  }, []);
+
   return (
     <BrowserRouter>
-{/* {isAuthenticated ? <PrivateRoutes/> : <PublicRoutes/>} */}
-<PrivateRoutes/>
-  
-   </BrowserRouter>
->>>>>>> fca391fa5e2f5414699e2138d885bee334afa05e
-  )
+      {isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />}
+    </BrowserRouter>
+  );
 }
 
 export default App;
-

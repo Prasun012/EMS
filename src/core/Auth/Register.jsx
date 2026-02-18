@@ -1,9 +1,13 @@
 import { useState } from "react";
-import "./Register.css";
+import { useNavigate } from "react-router-dom";
+import { users, addUser } from "../Users";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: ""
@@ -24,7 +28,25 @@ const Register = () => {
       return;
     }
 
-    alert("Registered Successfully (Demo)");
+    const usernameExists = users.find(
+      (user) => user.username === formData.username
+    );
+
+    if (usernameExists) {
+      alert("Username already taken");
+      return;
+    }
+
+    addUser({
+      name: formData.name,
+      username: formData.username,
+      email: formData.email,
+      password: formData.password
+    });
+
+    alert("Registration successful!");
+
+    navigate("/login"); // redirect to login
   };
 
   return (
@@ -33,53 +55,36 @@ const Register = () => {
         <h2>Create Account</h2>
 
         <form onSubmit={handleSubmit}>
+
           <div className="form-group">
             <label>Full Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your full name"
-              onChange={handleChange}
-              required
-            />
+            <input type="text" name="name" onChange={handleChange} required />
+          </div>
+
+          <div className="form-group">
+            <label>Username</label>
+            <input type="text" name="username" onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              onChange={handleChange}
-              required
-            />
+            <input type="email" name="email" onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              onChange={handleChange}
-              required
-            />
+            <input type="password" name="password" onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label>Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm password"
-              onChange={handleChange}
-              required
-            />
+            <input type="password" name="confirmPassword" onChange={handleChange} required />
           </div>
 
           <button type="submit" className="register-btn">
             Register
           </button>
+
         </form>
       </div>
     </div>

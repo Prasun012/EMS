@@ -71,12 +71,13 @@ const Login = () => {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
             />
           </div>
-
+          
           {/* Login Button */}
-          <Button type="submit" variant="primary" size="md">
+      <div className="flex justify-left">
+          <Button type="submit" variant="primary" size="md" className="w-full">
             Login
           </Button>
-
+</div>
           {/* Register Link */}
           <p className="text-sm text-center text-gray-600">
             Don’t have an account?{" "}

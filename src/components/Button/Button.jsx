@@ -1,7 +1,7 @@
 function Button({
   type = "button",
   variant = "primary",
-  size = "medium",
+  size = "md",
   onClick,
   disabled = false,
   children

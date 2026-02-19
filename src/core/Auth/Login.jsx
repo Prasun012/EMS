@@ -17,13 +17,12 @@ const Login = () => {
         user.username === username && user.password === password
     );
 
-    if (validUser) {
-      localStorage.setItem("users", JSON.stringify(validUser));
-      navigate("/");
-      window.location.reload();
-    } else {
-      setError("Invalid Username or Password");
-    }
+   if (validUser) {
+  navigate("/dashboard", { state: { user: validUser } });
+} else {
+  setError("Invalid Username or Password");
+}
+
   };
 
   return (

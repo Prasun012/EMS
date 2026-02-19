@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addUser, users } from "../../UserData/Users";
+import Users, { addUser } from "../../UserData/Users";
 import "./Register.css";
-
 
 const Register = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
     username: "",
     email: "",
     password: "",
@@ -30,7 +28,7 @@ const Register = () => {
       return;
     }
 
-    const usernameExists = users.find(
+    const usernameExists = Users.find(
       (user) => user.username === formData.username
     );
 
@@ -40,15 +38,14 @@ const Register = () => {
     }
 
     addUser({
-      name: formData.name,
       username: formData.username,
       email: formData.email,
-      password: formData.password
+      password: formData.password,
+      role: "user" // default role
     });
 
     alert("Registration successful!");
-
-    navigate("/login"); // redirect to login
+    navigate("/login");
   };
 
   return (
@@ -58,29 +55,49 @@ const Register = () => {
 
         <form onSubmit={handleSubmit}>
 
-          <div className="form-group">
-            <label>Full Name</label>
-            <input type="text" name="name" onChange={handleChange} required />
-          </div>
-
+          {/* Username */}
           <div className="form-group">
             <label>Username</label>
-            <input type="text" name="username" onChange={handleChange} required />
+            <input 
+              type="text" 
+              name="username" 
+              onChange={handleChange} 
+              required 
+            />
           </div>
 
+          {/* Gmail */}
           <div className="form-group">
-            <label>Email</label>
-            <input type="email" name="email" onChange={handleChange} required />
+            <label>Gmail</label>
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="example@gmail.com"
+              onChange={handleChange} 
+              required 
+            />
           </div>
 
+          {/* Password */}
           <div className="form-group">
             <label>Password</label>
-            <input type="password" name="password" onChange={handleChange} required />
+            <input 
+              type="password" 
+              name="password" 
+              onChange={handleChange} 
+              required 
+            />
           </div>
 
+          {/* Confirm Password */}
           <div className="form-group">
             <label>Confirm Password</label>
-            <input type="password" name="confirmPassword" onChange={handleChange} required />
+            <input 
+              type="password" 
+              name="confirmPassword" 
+              onChange={handleChange} 
+              required 
+            />
           </div>
 
           <button type="submit" className="register-btn">

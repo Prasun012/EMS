@@ -1,28 +1,16 @@
-const Users = [
-    { id: 1, email: "ram@example.com", username: "Ram", password: "123456" },
-    { id: 2, email: "p1@example.com", username: "P1", password: "asdfghjkl" },
-];
-// registeration
-// export let users = [];
-// export const addUser = (newUser) => {
-//     users.push(newUser);
-// };
-// export const getUsers = () => {
-//     return users;
-// };
+// Users.js
 
-export let users = [{
-    id: 1,
-    name: "Admin",
-    username: "admin",
-    email: "admin@test.com",
-    password: "123"
-}];
+let Users = [
+    { id: 1, email: "ram@example.com", username: "Ram", password: "123456", role: "superadmin" },
+    { id: 2, email: "p1@example.com", username: "P1", password: "asdfghjkl", role: "user" },
+];
 
 export const addUser = (user) => {
-    users.push({
-        id: users.length + 1,
+    Users.push({
+        id: Users.length + 1,
+        role: "user", // default role
         ...user
     });
 };
+
 export default Users;

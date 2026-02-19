@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Users from "../../UserData/Users";
+// import Users from "../../UserData/Users";
 import Button from "../../components/Button/Button";
+import Users, { addUser } from "../../UserData/Users";
+
 
 const Login = () => {
   const [username, setUsername] = useState("");

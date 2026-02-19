@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Table from "../../components/DataTable/Table";
 import Data from "./DepartmentTable";
 import Button from "../../components/Button/Button";
 import Modal from "../../components/Modal/Modal";
 
-const ModelDemo = () => {
+const DepartmentSection = () => {
   const [open, setOpen] = useState(false);
-  const [departments, setDepartments] = useState(Data);
   const [newDepartment, setNewDepartment] = useState("");
+
+  // Load from localStorage or fallback to Data file
+  const [departments, setDepartments] = useState(() => {
+    const saved = localStorage.getItem("departments");
+    return saved ? JSON.parse(saved) : Data;
+  });
+
+  // Save to localStorage whenever departments change
+  useEffect(() => {
+    localStorage.setItem("departments", JSON.stringify(departments));
+  }, [departments]);
 
   const columns = [
     { key: "index", label: "ID" },
@@ -15,30 +25,33 @@ const ModelDemo = () => {
     { key: "actions", label: "Actions" }
   ];
 
-  // Add new department
+  // ✅ Add Department
   const handleAdd = () => {
-    if (!newDepartment.trim()) return; // prevent empty input
+    if (!newDepartment.trim()) return;
+
     const newDept = {
       index: departments.length + 1,
       department: newDepartment
     };
+
     setDepartments([...departments, newDept]);
     setNewDepartment("");
     setOpen(false);
   };
 
-  // Delete department
+  // ✅ Delete Department
   const handleDelete = (id) => {
     const filtered = departments.filter((dept) => dept.index !== id);
-    // Reindex remaining departments
+
     const reindexed = filtered.map((dept, i) => ({
       index: i + 1,
       department: dept.department
     }));
+
     setDepartments(reindexed);
   };
 
-  // Prepare table data with delete buttons
+  // Prepare Table Data
   const tableData = departments.map((dept) => ({
     ...dept,
     actions: (
@@ -53,39 +66,49 @@ const ModelDemo = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+<div className="min-h-screen bg-gray-100 p-8">
+      
+      {/* Wrat ModelDemo content */}
       <div className={open ? "blur-sm pointer-events-none" : ""}>
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Department</h1>
-          <Button variant="primary" size="md" onClick={() => setOpen(true)}>
+          <h1 className="text-3xl font-bold text-gray-800">
+            Department
+          </h1>
+
+          <Button
+            variant="primary"
+            size="md"
+            onClick={() => setOpen(true)}
+          >
             Add Department
           </Button>
         </div>
 
-        {/* Table Card */}
-        <div className="bg-white">
+        {/* Table */}
+        <div>
           <Table columns={columns} data={tableData} />
         </div>
       </div>
 
       {/* Modal */}
       {open && (
-        <Modal title="Add Department" onClose={() => setOpen(false)}>
-          <div className="space-y-4">
-            <input
-              type="text"
-              placeholder="Department Name"
-              value={newDepartment}
-              onChange={(e) => setNewDepartment(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-           
-          </div>
+        <Modal
+          title="Add Department"
+          onClose={() => setOpen(false)}
+          onSave={handleAdd}
+        >
+          <input
+            type="text"
+            placeholder="Department Name"
+            value={newDepartment}
+            onChange={(e) => setNewDepartment(e.target.value)}
+            className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </Modal>
       )}
     </div>
   );
 };
 
-export default ModelDemo;
+export default DepartmentSection;

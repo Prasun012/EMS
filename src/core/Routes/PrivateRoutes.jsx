@@ -11,12 +11,12 @@ const PrivateRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="department" element={<Department />} />
-        <Route path="employeeID" element={<EmployeeID />} />
-        <Route path="viewDetail" element={<ViewDetails />} />
-        <Route path="attendance" element={<Attendance />} />
-        <Route path="employee" element={<Employee />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/department" element={<Department />} />
+        <Route path="/employeeID" element={<EmployeeID />} />
+        <Route path="/viewDetail" element={<ViewDetails />} />
+        <Route path="/attendance" element={<Attendance />} />
+        <Route path="/employee" element={<Employee />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" />} />

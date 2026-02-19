@@ -3,5 +3,4 @@ const Data = [
   { id: 2, department: "Marketing" },
     { id: 3, department: "HR" }
 ];
-
 export default Data;

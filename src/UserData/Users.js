@@ -3,11 +3,11 @@ const Users = [
     { id: 2, email: "p1@example.com", username: "P1", password: "asdfghjkl" },
 ];
 // registeration
-export let users = [];
-export const addUser = (newUser) => {
-    users.push(newUser);
-};
-export const getUsers = () => {
-    return users;
-};
-export default Users;
+// export let users = [];
+// export const addUser = (newUser) => {
+//     users.push(newUser);
+// };
+// export const getUsers = () => {
+//     return users;
+// };
+// export default Users;

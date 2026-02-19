@@ -64,7 +64,7 @@ const ModelDemo = () => {
         </div>
 
         {/* Table Card */}
-        <div className="bg-white shadow-md rounded-xl p-6">
+        <div className="bg-white">
           <Table columns={columns} data={tableData} />
         </div>
       </div>

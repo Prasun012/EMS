@@ -1,11 +1,11 @@
 import { useLocation } from "react-router-dom";
 
 // Import your ready components
-import EmployeeDetails from "../EmployeeID/EmployeeDetails";
+import ViewDetails from "../ViewDetails/ViewDetails";
 import Department from "../Department/Department";
 import Attendance from "../Attendance/Attendance";
 import AttendanceChart from "../Attendance/AttendanceChart";
-import PersonalDetails from "../PersonalDetails/PersonalDetails";
+import EmployeeID from "../EmployeeID/employeeID";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -22,8 +22,8 @@ const Dashboard = () => {
       {/* SUPER ADMIN VIEW */}
       {user.role === "superadmin" && (
         <>
-          <Section title="Employee Detail List">
-            <EmployeeDetails />
+          <Section title="View Detail List">
+            <ViewDetails />
           </Section>
 
           <Section title="Department Detail List">
@@ -40,7 +40,7 @@ const Dashboard = () => {
       {user.role === "user" && (
         <>
           <Section title="My Personal Details">
-            <PersonalDetails user={user} />
+            <EmployeeID user={user} />
           </Section>
 
           <Section title="My Attendance">

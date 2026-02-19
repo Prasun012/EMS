@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { addUser, getUsers } from "../../UserData/Users";
+import { useNavigate } from "react-router-dom";
+import Users, { addUser } from "../../UserData/Users";
+import "./Register.css";
 
 const Register = () => {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: ""
@@ -19,55 +22,90 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
- addUser(formData); 
+    const usernameExists = Users.find(
+      (user) => user.username === formData.username
+    );
 
-    console.log("All Users:", getUsers());
-    console.log("User Registered:", formData);
+    if (usernameExists) {
+      alert("Username already taken");
+      return;
+    }
 
-   
+    addUser({
+      username: formData.username,
+      email: formData.email,
+      password: formData.password,
+      role: "user" // default role
+    });
+
+    alert("Registration successful!");
+    navigate("/login");
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="register-container">
+      <div className="register-card">
+        <h2>Create Account</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          onChange={handleChange}
-        />
+        <form onSubmit={handleSubmit}>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+          {/* Username */}
+          <div className="form-group">
+            <label>Username</label>
+            <input 
+              type="text" 
+              name="username" 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          {/* Gmail */}
+          <div className="form-group">
+            <label>Gmail</label>
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="example@gmail.com"
+              onChange={handleChange} 
+              required 
+            />
+          </div>
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          onChange={handleChange}
-        />
+          {/* Password */}
+          <div className="form-group">
+            <label>Password</label>
+            <input 
+              type="password" 
+              name="password" 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
 
-        <button type="submit">Register</button>
-      </form>
+          {/* Confirm Password */}
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input 
+              type="password" 
+              name="confirmPassword" 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+
+          <button type="submit" className="register-btn">
+            Register
+          </button>
+
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,11 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard";
-import Department from "../Department/department";
 import EmployeeID from "../EmployeeID/employeeID";
 import ViewDetails from "../ViewDetails/ViewDetails";
-import Attendance from "../Attendance/attendance";
 import Employee from "../AddEmployee/Employee";
 import MainLayout from "../MainLayout/MainLayout";
+import Attendance from "../Attendance/Attendance";
 
 const PrivateRoutes = () => {
   return (

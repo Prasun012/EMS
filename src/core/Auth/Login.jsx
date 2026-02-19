@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Users from "../../UserData/Users";
+// import Users from "../../UserData/Users";
 import Button from "../../components/Button/Button";
+import Users, { addUser } from "../../UserData/Users";
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,13 +19,12 @@ const Login = () => {
         user.username === username && user.password === password
     );
 
-    if (validUser) {
-      localStorage.setItem("users", JSON.stringify(validUser));
-      navigate("/");
-      window.location.reload();
-    } else {
-      setError("Invalid Username or Password");
-    }
+   if (validUser) {
+  navigate("/dashboard", { state: { user: validUser } });
+} else {
+  setError("Invalid Username or Password");
+}
+
   };
 
   return (

@@ -68,7 +68,7 @@ const DepartmentSection = () => {
   return (
 <div className="min-h-screen bg-gray-100 p-8">
       
-      {/* Wrat ModelDemo content */}
+      {/* Write MOdal content */}
       <div className={open ? "blur-sm pointer-events-none" : ""}>
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
@@ -112,3 +112,6 @@ const DepartmentSection = () => {
 };
 
 export default DepartmentSection;
+// This component manages the department section of the application, allowing users to view, add, and delete departments.
+//  It uses localStorage to persist data across sessions and provides a user-friendly interface with modals and buttons
+//  for interaction.

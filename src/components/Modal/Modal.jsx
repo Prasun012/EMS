@@ -42,3 +42,5 @@ const Modal = ({ title, children, onClose, onSave }) => {
 };
 
 export default Modal;
+//uses props to create a reusable modal component that can be easily integrated
+//  into different parts of the application, providing a consistent user experience for dialogs and forms.

@@ -7,9 +7,9 @@ import Users, { addUser } from "../../UserData/Users";
 
 const Login = () => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); //Store the values into the login form
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //used to redirect the user to a different page after login.
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -97,3 +97,6 @@ const Login = () => {
 };
 
 export default Login;
+
+// uses state to manage form inputs and error messages, and uses react-router-dom for navigation after successful login.
+//  It checks the entered credentials against a list of users and provides feedback on login success or failure.

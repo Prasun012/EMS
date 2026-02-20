@@ -31,7 +31,7 @@ const ViewDetails = () => {
       <div className="space-y-4">
         <div>
           <p className="text-gray-500">Full Name</p>
-          <p className="text-lg font-medium">{user.name}</p>
+          <p className="text-lg font-medium">{user.username}</p>
         </div>
 
         <div>
@@ -41,7 +41,7 @@ const ViewDetails = () => {
 
         <div>
           <p className="text-gray-500">Role</p>
-          <p className="text-lg font-medium">{user.role || "Admin"}</p>
+          <p className="text-lg font-medium">{user.role }</p>
         </div>
       </div>
     </div>

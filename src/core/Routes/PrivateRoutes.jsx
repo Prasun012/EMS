@@ -5,13 +5,14 @@ import ViewDetails from "../ViewDetails/ViewDetails";
 import Employee from "../AddEmployee/Employee";
 import MainLayout from "../MainLayout/MainLayout";
 import Attendance from "../Attendance/Attendance";
+import DepartmentSection from "../Department/Department";
 
 const PrivateRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/department" element={<Department />} />
+        <Route path="/department" element={<DepartmentSection />} />
         <Route path="/employeeID" element={<EmployeeID />} />
         <Route path="/profile" element={<ViewDetails />} />
         <Route path="/attendance" element={<Attendance />} />

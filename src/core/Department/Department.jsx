@@ -3,7 +3,9 @@ import Table from "../../components/DataTable/Table";
 import Data from "./DepartmentTable";
 import Button from "../../components/Button/Button";
 import Modal from "../../components/Modal/Modal";
-
+// This component manages the department section of the application, allowing users to view, add, and delete departments.
+//  It uses localStorage to persist data across sessions and provides a user-friendly interface with modals and buttons
+//  for interaction.
 const DepartmentSection = () => {
   const [open, setOpen] = useState(false);
   const [newDepartment, setNewDepartment] = useState("");
@@ -112,6 +114,3 @@ const DepartmentSection = () => {
 };
 
 export default DepartmentSection;
-// This component manages the department section of the application, allowing users to view, add, and delete departments.
-//  It uses localStorage to persist data across sessions and provides a user-friendly interface with modals and buttons
-//  for interaction.

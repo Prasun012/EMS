@@ -26,7 +26,8 @@ const Login = () => {
 }
 
   };
-
+// uses state to manage form inputs and error messages, and uses react-router-dom for navigation after successful login.
+//  It checks the entered credentials against a list of users and provides feedback on login success or failure.
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 px-4">
       <div className="bg-white shadow-xl rounded-2xl w-full max-w-md p-8">
@@ -98,5 +99,3 @@ const Login = () => {
 
 export default Login;
 
-// uses state to manage form inputs and error messages, and uses react-router-dom for navigation after successful login.
-//  It checks the entered credentials against a list of users and provides feedback on login success or failure.

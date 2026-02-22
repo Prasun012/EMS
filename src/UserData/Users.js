@@ -1,8 +1,8 @@
 // Users.js
 
 let Users = [
-    { id: 1, email: "ram@example.com", username: "Ram", password: "123456", role: "superadmin" },
-    { id: 2, email: "p1@example.com", username: "P1", password: "asdfghjkl", role: "user" },
+    { id: 1, email: "ram@example.com", username: "Ram", password: "123456", role: "admin" },
+    { id: 2, email: "p1@example.com", username: "P1", password: "asdfghjkl", role: "admin" },
 ];
 //  registeration
 export let users = [];

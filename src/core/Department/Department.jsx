@@ -27,7 +27,7 @@ const DepartmentSection = () => {
     { key: "actions", label: "Actions" }
   ];
 
-  // ✅ Add Department
+  // Add Department
   const handleAdd = () => {
     if (!newDepartment.trim()) return;
 
@@ -41,7 +41,7 @@ const DepartmentSection = () => {
     setOpen(false);
   };
 
-  // ✅ Delete Department
+  // Delete Department
   const handleDelete = (id) => {
     const filtered = departments.filter((dept) => dept.index !== id);
 

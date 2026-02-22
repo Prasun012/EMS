@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Welcome, {user.name}</h1>
+      <h1>Welcome {user.name}</h1>
 
       {/* SUPER ADMIN VIEW */}
       {user.role === "superadmin" && (

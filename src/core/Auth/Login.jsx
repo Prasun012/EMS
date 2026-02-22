@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import Users from "../../UserData/Users";
+import Users from "../../UserData/Users";
 import Button from "../../components/Button/Button";
-import Users, { addUser } from "../../UserData/Users";
-
 
 const Login = () => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState(""); //Store the values into the login form
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate(); //used to redirect the user to a different page after login.
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,12 +17,13 @@ const Login = () => {
         user.username === username && user.password === password
     );
 
-   if (validUser) {
-  navigate("/dashboard", { state: { user: validUser } });
-} else {
-  setError("Invalid Username or Password");
-}
-
+    if (validUser) {
+      localStorage.setItem("users", JSON.stringify(validUser));
+      navigate("/");
+      window.location.reload();
+    } else {
+      setError("Invalid Username or Password");
+    }
   };
 // uses state to manage form inputs and error messages, and uses react-router-dom for navigation after successful login.
 //  It checks the entered credentials against a list of users and provides feedback on login success or failure.
@@ -97,5 +96,9 @@ const Login = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Login;
 
+=======
+export default Login;
+>>>>>>> 04c0942dfc37f11d83e9ed06666db1dafebb5a39

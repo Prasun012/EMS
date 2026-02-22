@@ -30,7 +30,10 @@ const Dashboard = () => {
           </Section>
 
           <Section title="Department Detail List">
-            <Department />
+            <div>
+          <p className="text-gray-500">Role</p>
+          <p className="text-lg font-medium">{user.role }</p>
+        </div>
           </Section>
 
           <Section title="Time Stand Attendance Chart">

@@ -8,7 +8,7 @@
 //   Navigate
 // } from "react-router-dom";
 
-// import { loginUser, registerUser, resetPassword } from "./fakeDatabase";
+// import { loginUser, registUser, resetPassword } from "./fakeDatabase";
 
 // function ProtectedRoute({ isAuthenticated, children }) {
 //   if (!isAuthenticated) return <Navigate to="/" replace />;

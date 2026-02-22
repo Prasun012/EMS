@@ -18,8 +18,11 @@ const PrivateRoutes = () => {
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/employee" element={<Employee />} />
       </Route>
-
-      <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<div>
+          404 Not Found
+        </div>} />
+      
+       
     </Routes>
   );
 };
